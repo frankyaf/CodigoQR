@@ -1,10 +1,15 @@
+<?php 
+    include 'phpqrcode/qrlib.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asistencia</title>
+    <title>Creación QR</title>
+
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <main class= "contenedor"> 
@@ -14,10 +19,53 @@
                 <div class="texto">
                     <h1>Universidad Nacional Autónoma de México</h1>
                     <p>Facultad de Estudios Superiores</p>
-                    <p>Matemáticas Aplicadas y Computación</p>
+                    <p>Programa Político</p>
                 </div>
             </div>
-        </header>
+    </header>
+    <nav>
+        <label for="menu" class="menu">Menú Principal</label>
+                <ul id="menu"> 
+                    <li><a href="#">Creación QR</a></li>
+                    <li><a href="#">Asistenci</a></li>
+                </ul>
+    </nav>
+    <section class= "Formulario">
+        <div class="contenido">
+            <div class="izquierda">
+                <h1>Formulario para la creación de códigos QR</h1>
+                <form method="get">
+                        <label for="Info">Texto</label>
+                        <input type="text" name="texto">
+                        <label for="nombre">Nombre del archivo</label>
+                        <input type="text" name="archive_name">
+                        <input type="submit" value="Enviar">
+                </form>
+            </div>
+
+            
+            <div class="derecha">
+                <?php
+                    
+                    $contenido = $_GET['texto'];
+                    $name = $_GET['archive_name'];
+                    if(!empty($name)){
+                        $filename = "temp/".$name.".png";
+                    }
+                    
+                    $level = 'M';	
+                    $tamanio = 10;
+                    $frameSize = 3;
+                    
+                    Qrcode::png($contenido, $filename, $level, $tamanio, $frameSize);
+
+                    echo "<div><img src='".$filename."'></div>";   
+                ?>
+
+            </div>
+        </div>  
+    </section>
+
     </main>
 </body>
 </html>

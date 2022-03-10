@@ -31,7 +31,7 @@ header{
 	background-size: 100px 100px;
 	text-align: center;
 	padding: 30px 15px;
-	margin-bottom: 20px;
+	margin-bottom: 40px;
 }
 
 .portada img{
@@ -59,4 +59,11 @@ header{
 	font-size: 20px;
 	text-align: center; 
 	margin: 0 auto;
+}
+
+.Formulario.contenido.izquierda,
+.Formulario.contenido.derecha{
+    float: left;
+	width: 50%;
+	padding: 0px 10px;
 }
