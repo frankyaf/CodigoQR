@@ -9,7 +9,6 @@
     $tamanio = 10;
     $frameSize = 3;
     
-
     Qrcode::png($contenido, $filename, $level, $tamanio, $frameSize);
 
     echo "<div><img src='".$filename."'></div>";

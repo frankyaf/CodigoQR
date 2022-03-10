@@ -1,0 +1,62 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #dddddd;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+
+
+
+.contenedor{
+    max-width: 1140px;
+    background-color: #dddddd;
+    height: auto;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+h1{
+	font-size: 30px;
+	margin: 0;
+}
+
+header{
+	float: left;
+	width: 100%;
+	background-image: url("https://media.istockphoto.com/vectors/black-background-vector-id1167050865?k=6&m=1167050865&s=612x612&w=0&h=I-wf_Vv-MzqTfcYd8AxZKKvXGM3yC6DNNAEOHswvaMY=");
+	background-size: 100px 100px;
+	text-align: center;
+	padding: 30px 15px;
+	margin-bottom: 20px;
+}
+
+.portada img{
+	width: 15%;
+	height: 100px;
+	float: left;
+}
+
+.portada .texto{
+	width: 85%;
+	padding: 10px;
+	height: 100px;
+	text-align: center;
+	float: right;
+}
+
+.portada .texto h1{
+	color: white;
+	font-size: 30px;
+	margin: 0 auto;
+}
+
+.portada .texto p{
+	color: white;
+	font-size: 20px;
+	text-align: center; 
+	margin: 0 auto;
+}
