@@ -1,0 +1,6 @@
+Para la primera prueba de lectura de un código QR, se acudió a el len-
+guaje de programación conocido como Python, que a su vez, se tienen que
+instalar dos librerias más:
+
+    -cv2  (Encargada de la camara)
+    -pyzbar (Encargada de decodificar los códigos qr)
