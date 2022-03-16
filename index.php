@@ -27,10 +27,10 @@
         <label for="menu" class="menu">Menú Principal</label>
                 <ul id="menu"> 
                     <li><a href="#">Creación QR</a></li>
-                    <li><a href="#">Asistenci</a></li>
+                    <li><a href="#">Asistencia</a></li>
                 </ul>
     </nav>
-    <section class= "Formulario">
+    <section class= "formulario">
         <div class="contenido">
             <div class="izquierda">
                 <h1>Formulario para la creación de códigos QR</h1>
@@ -45,6 +45,7 @@
 
             
             <div class="derecha">
+                <h3>Vista previa</h3>
                 <?php
                     
                     $contenido = $_GET['texto'];
@@ -61,7 +62,6 @@
 
                     echo "<div><img src='".$filename."'></div>";   
                 ?>
-
             </div>
         </div>  
     </section>

@@ -9,9 +9,7 @@ body{
 }
 
 
-
-
-.contenedor{
+.contenido{
     max-width: 1140px;
     background-color: #dddddd;
     height: auto;
@@ -61,8 +59,63 @@ header{
 	margin: 0 auto;
 }
 
-.Formulario.contenido.izquierda,
-.Formulario.contenido.derecha{
+nav{
+	float: left;
+	width: 100%;
+	background-color: #dddddd;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+nav ul{
+	width: 100%;
+	margin: 0 auto;
+	padding: 0;
+}
+
+nav li{
+	list-style: none;
+	float: left;
+	width: 100%;
+}
+
+nav li a{
+	display: block;
+	line-height: 50px;
+	text-decoration: none;
+	font-size: 25px;
+	color: #daa520;
+	background-color: rgba(0, 0, 0, 0.932);
+}
+
+nav .menu{
+	font-family: Arial, Helvetica, sans-serif;
+	color: #ffffff;
+	background-color: #2f3036;
+	text-align: center;
+	font-size: 25px;
+	padding: 10px 0;
+	display: none;
+}
+
+
+
+nav input[type=checkbox]{
+	display: none;
+}
+
+input[type=checkbox]:checked ~ #menu{
+	display: block;
+}
+
+nav li:hover a{
+	background-color: rgb(255, 255, 255);
+	color: #daa520;
+}
+
+
+.formulario.contenido.izquierda,
+.formulario.contenido.derecha{
     float: left;
 	width: 50%;
 	padding: 0px 10px;
