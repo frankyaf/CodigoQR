@@ -8,10 +8,9 @@ body{
     box-sizing: border-box;
 }
 
-
-.contenido{
+.contenedor{
     max-width: 1140px;
-    background-color: #dddddd;
+    background-color: cornflowerblue;
     height: auto;
     margin: 40px auto;
     padding: 20px;
@@ -76,7 +75,7 @@ nav ul{
 nav li{
 	list-style: none;
 	float: left;
-	width: 100%;
+	width: 50%;
 }
 
 nav li a{
@@ -100,6 +99,7 @@ nav .menu{
 
 
 
+
 nav input[type=checkbox]{
 	display: none;
 }
@@ -113,10 +113,30 @@ nav li:hover a{
 	color: #daa520;
 }
 
+h1{
+	font-size: 25px;
+	margin: 0;
+}
 
-.formulario.contenido.izquierda,
-.formulario.contenido.derecha{
+.ventana.contenido{
+	float: left;
+	width: 100%;
+	padding: 0px 10px;
+}
+
+
+.contenido.izquierda,
+.contenido.derecha{
     float: left;
 	width: 50%;
 	padding: 0px 10px;
+	text-align: left;
+}
+
+form{
+	background-color: black;
+	width: 50%;
+	margin: 0px;
+	color: white;
+	padding: 10px;
 }
