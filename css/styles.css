@@ -118,19 +118,18 @@ h1{
 	margin: 0;
 }
 
-.ventana.contenido{
-	float: left;
-	width: 100%;
-	padding: 0px 10px;
-}
-
-
 .contenido.izquierda,
 .contenido.derecha{
     float: left;
 	width: 50%;
 	padding: 0px 10px;
 	text-align: left;
+}
+
+.contenido.izquierda{
+	float: left;
+	width: 33%;
+	text-align: center;
 }
 
 form{
