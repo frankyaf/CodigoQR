@@ -4,3 +4,6 @@ instalar dos librerias más:
 
     -cv2  (Encargada de la camara)
     -pyzbar (Encargada de decodificar los códigos qr)
+
+Enable extension:gd for less versions of PHP is extension:gd2
+

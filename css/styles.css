@@ -10,7 +10,7 @@ body{
 
 .contenedor{
     max-width: 1140px;
-    background-color: cornflowerblue;
+    background-color: rgb(204, 127, 255);
     height: auto;
     margin: 40px auto;
     padding: 20px;
@@ -19,6 +19,18 @@ body{
 h1{
 	font-size: 30px;
 	margin: 0;
+}
+
+h2{	
+	font-size: 25px;
+	margin: 0;
+	text-align: left;
+}
+
+h3{
+	font-size: 25px;
+	margin: 0;
+	text-align: left;
 }
 
 header{
@@ -113,29 +125,51 @@ nav li:hover a{
 	color: #daa520;
 }
 
-h1{
-	font-size: 25px;
-	margin: 0;
+/*.ventana{
+	float: left;
+	width: 100%;
 }
 
-.contenido.izquierda,
-.contenido.derecha{
+.ventana .contenido{
+	float: left;
+	width: 100%;
+}*/
+
+/*.ventana .contenido .abajo*/
+.ventana .contenido .arriba{
+	float: left;
+	width: 100%;
+
+}
+
+.ventana .contenido .arriba .izquierda,
+.ventana .contenido .arriba .derecha{
     float: left;
 	width: 50%;
 	padding: 0px 10px;
 	text-align: left;
 }
 
-.contenido.izquierda{
+
+/*.ventana .contenido .abajo .izquierda_1,
+.ventana .contenido .abajo .derecha_1{
 	float: left;
-	width: 33%;
-	text-align: center;
+	width: 50%;
+}*/
+
+.foot{
+	float: left;
+	width: 100%;
 }
 
 form{
 	background-color: black;
-	width: 50%;
+	width: 100%;
 	margin: 0px;
 	color: white;
 	padding: 10px;
+}
+
+.clear{
+	clear: both;
 }
