@@ -127,11 +127,14 @@
                            
                             $filename2 = "temp/".$name2.".png";
                             
-                            $codeContents = 'BEGIN:VCARD'."\n";
-                            $codeContents .= 'VERSION:4.0'."\n";
-                            $codeContents .= 'Cuenta:'.$s_cuenta."\n";
-                            $codeContents .= 'FN:'.$s_name."\n";
-                            $codeContents .= 'END:VCARD';
+                            //$codeContents = 'BEGIN:VCARD'."\n";
+                            //$codeContents .= 'VERSION:4.0'."\n";
+                            //$codeContents .= 'Cuenta:'.$s_cuenta."\n";
+                            //$codeContents .= 'FN:'.$s_name."\n";
+                            //$codeContents .= 'END:VCARD';
+
+                            $codeContents = "Cuenta: ".$s_cuenta."\n";
+                            $codeContents .= "Nombre: ".$s_name."\n";
 
                             Qrcode::png($codeContents, $filename2, $level2, $tamanio2, $frameSize2);
                         ?>
