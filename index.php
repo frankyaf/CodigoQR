@@ -124,19 +124,24 @@
                             $level2 = 'Q';	
                             $tamanio2 = 8;
                             $frameSize2 = 2;
-                           
-                            $filename2 = "temp/".$name2.".png";
-                            
+
+                            if(!empty($name2)){
+                                $filename2 = "temp/".$name2.".png";
+                            }
+                
                             //$codeContents = 'BEGIN:VCARD'."\n";
                             //$codeContents .= 'VERSION:4.0'."\n";
                             //$codeContents .= 'Cuenta:'.$s_cuenta."\n";
                             //$codeContents .= 'FN:'.$s_name."\n";
                             //$codeContents .= 'END:VCARD';
 
-                            $codeContents = "Cuenta: ".$s_cuenta."\n";
-                            $codeContents .= "Nombre: ".$s_name;
+                            if(!empty($s_name && $s_cuenta)){
+                                $codeContents = "Cuenta: ".$s_cuenta."\n";
+                                $codeContents .= "Nombre: ".$s_name;
+                                Qrcode::png($codeContents, $filename2, $level2, $tamanio2, $frameSize2);
+                            }
 
-                            Qrcode::png($codeContents, $filename2, $level2, $tamanio2, $frameSize2);
+                            
                         ?>
                         <div ><img src= <?php echo $filename2 ?> > </div>
                     </div>
