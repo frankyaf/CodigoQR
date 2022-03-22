@@ -33,16 +33,37 @@
     <section class= "ventana">
         <div class="contenido">
             <div class="izquierda">
-                    <h1>Asistencia de los profesores</h1>
+                    <h1>Asistencia de los alumnos</h1>
                     <?php  
-                        $fp = fopen("decrypted.txt","r") or die ("Error al leer");
+                        /*$fp = fopen("decrypted.txt","r") or die ("Error al leer");
                         while(!feof($fp)){
                             $linea = fgets($fp);   
                         }
                         $nombre = $linea;
+                        fclose($fp); */
+
+                        $fp = fopen("decrypted.txt", "rb");
+                        $datos = fread($fp, filesize("decrypted.txt"));
+                        $nombre = $datos;
                         fclose($fp);
+
+                        $needle   = 'Nombre:';
+
+                        $pos      = strripos($nombre, $needle);
+
+                        if ($pos === false) {
+                            echo "Sorry, we did not find ($needle) in ($nombre)";
+                        } else {
+                           // echo "Congratulations!\n";
+                            //echo "We found the last ($needle) in ($nombre) at position ($pos)";
+                        }
+
+                        $cuenta = substr($nombre,0,-1);
+                        $name = substr($nombre,-$pos-6);
+
                     ?>
-                    <label for="Persona"> <?php echo $nombre ?> </label>
+                    <label for="Persona"> <?php echo $cuenta?> </label> <br>
+                    <label for="Persona"> <?php echo $name?> </label>
             </div>
 
             

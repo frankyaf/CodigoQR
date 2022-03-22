@@ -134,7 +134,7 @@
                             //$codeContents .= 'END:VCARD';
 
                             $codeContents = "Cuenta: ".$s_cuenta."\n";
-                            $codeContents .= "Nombre: ".$s_name."\n";
+                            $codeContents .= "Nombre: ".$s_name;
 
                             Qrcode::png($codeContents, $filename2, $level2, $tamanio2, $frameSize2);
                         ?>
