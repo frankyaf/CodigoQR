@@ -35,36 +35,16 @@
                 <div class="izquierda">
                         <h1>Asistencia de los alumnos</h1>
                         <?php  
-                            /*$fp = fopen("decrypted.txt","r") or die ("Error al leer");
-                            while(!feof($fp)){
-                                $linea = fgets($fp);   
-                            }
-                            $nombre = $linea;
-                            fclose($fp); */
+                            
 
                             $fp = fopen("decrypted.txt", "rb");
                             $datos = fread($fp, filesize("decrypted.txt"));
                             $nombre = $datos;
                             fclose($fp);
 
-                            $needle   = 'Nombre:';
-                            $needle2  = 'Cuenta:';
-
-                            $pos      = strripos($nombre, $needle);
-
-                            if ($pos === false) {
-                                //echo "Sorry, we did not find ($needle) in ($nombre)";
-                            } else {
-                            // echo "Congratulations!\n";
-                                //echo "We found the last ($needle) in ($nombre) at position ($pos)";
-                            }
-
-                            //$cuenta = substr($nombre,0,-1);
-                            //$name = substr($nombre,-$pos-6);
-
                             $nombre2 = array();
 
-                            $token = strtok($nombre, "\n"); // Primer token
+                            $token = strtok($nombre,"\n"); // Primer token
                             //echo "<br>";
                             $nombre2[0] = $token;
                             while($token !== false) {
@@ -92,7 +72,8 @@
                     <h3>Registro en la base de datos</h3>
                         <?php 
                             include 'php/conexion.php';
-                            $alumnos = "alumnos";    
+                            $alumnos = "alumnos";
+                            $asistencia = "asistencia";    
                             $sql = "SELECT * FROM $alumnos WHERE cuenta = $cuenta";
                             $result = $conn->query($sql);
                             if ($result->num_rows > 0) {
@@ -103,8 +84,38 @@
                                 <label for="Efemeride"><?php echo $fila['nombre'] ?></label> <br>
                         <?php
                                 }
-                            } 
+                            }
+                            date_default_timezone_set("America/Mexico_City");
+                            $fecha_actual = date('d-m-Y');
+                            $hora_actual = date('h:i A');
+     
                         ?>
+                        <h3> Fecha y hora del registro</h3>
+                        <label for="Fecha"> Fecha: <?php echo $fecha_actual ?> </label> <br>
+                        <label for="Hora"> Hora: <?php echo $hora_actual ?> </label> <br>
+                        <!--<form action="get">
+                        <label for="nivel">Seguro que quieres guardar el registro: </label>
+                                    <select name="decision" id="level">
+                                        <option >YES </option>
+                                        <option >NO</option>
+                                    </select>
+                            <input type="submit" value="Registrar asistencia">
+                        </form>  !-->
+                        <?php
+                            //$des = $_GET['decision'];
+                            //echo $des;
+                            //if( $des == "YES"){
+                                $sql2 = "INSERT INTO $asistencia(cuenta,nombre,fecha,hora) 
+                                VALUES ('$cuenta','$name','$fecha_actual','$hora_actual')";
+                                if ($conn->query($sql2) === TRUE) {
+                                    echo "New record created successfully";
+                                } else {
+                                    echo "Error: " . $sql2 . "<br>" . $conn->error;
+                                }
+                            //}
+                            
+                        ?>
+                        
                 </div>
             
         </div>  

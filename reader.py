@@ -16,11 +16,12 @@ while camera == True:
         print(myData)
 
     cv2.imshow('Result',img)
-    if cv2.waitKey(1) == ord('q'):
+    if cv2.waitKey(1) == ord('w'):
+        cv2.destroyAllWindows()
         break
 
 cap.release()
-cv2.destroyAllWindows()
+
 
 f = open('C:/xampp/htdocs/dashboard/QR/decrypted.txt', 'w')
 f.write(myData)
