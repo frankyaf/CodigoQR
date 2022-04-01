@@ -86,6 +86,7 @@
                                 }
                             }
                             date_default_timezone_set("America/Mexico_City");
+                            setlocale(LC_ALL,"es_MX");
                             $fecha_actual = date('d-m-Y');
                             $hora_actual = date('h:i A');
      
@@ -93,27 +94,39 @@
                         <h3> Fecha y hora del registro</h3>
                         <label for="Fecha"> Fecha: <?php echo $fecha_actual ?> </label> <br>
                         <label for="Hora"> Hora: <?php echo $hora_actual ?> </label> <br>
-                        <!--<form action="get">
-                        <label for="nivel">Seguro que quieres guardar el registro: </label>
-                                    <select name="decision" id="level">
-                                        <option >YES </option>
-                                        <option >NO</option>
-                                    </select>
-                            <input type="submit" value="Registrar asistencia">
-                        </form>  !-->
-                        <?php
-                            //$des = $_GET['decision'];
-                            //echo $des;
-                            //if( $des == "YES"){
-                                $sql2 = "INSERT INTO $asistencia(cuenta,nombre,fecha,hora) 
-                                VALUES ('$cuenta','$name','$fecha_actual','$hora_actual')";
-                                if ($conn->query($sql2) === TRUE) {
-                                    echo "New record created successfully";
-                                } else {
-                                    echo "Error: " . $sql2 . "<br>" . $conn->error;
+                        
+                        <?php   
+                            $sql = "SELECT * FROM $alumnos WHERE cuenta = $cuenta";
+                            $result = $conn->query($sql);
+                            if($result->num_rows>0){
+                                while($fila = $result->fetch_assoc()) {
+                                    ?>
+                                    <label for="id"> <?php echo $fila['id_alumnos']?></label> <br>
+                                    <label for="cuenta"> <?php echo $fila['cuenta']?></label> <br>
+                                    <label for="nombre"><?php echo $fila['nombre'] ?></label> <br>
+                                    <label for="Horario"><?php echo $fila['horario'] ?></label> <br>
+                            <?php   
+                                    $horario = $fila['horario'];
                                 }
-                            //}
-                            
+                            }
+                                setlocale(LC_ALL,""); 
+                                $dia_actual = strftime('%A');
+                                //echo $dia_actual;
+                                $pos      = strripos($horario, $dia_actual);
+                                if ($pos === false) {
+                                    //echo "Sorry, we did not find ($horario) in ($dia_actual)";
+                                    echo "Hoy no es tú día de asistencia";
+                                } else {
+                                    //echo "We found the last ($dia_actual) in ($horario) at position ($pos)";
+                                    ?> <label for="nota">Asistencia</label> <br> <?php
+                                    $sql2 = "INSERT INTO $asistencia(cuenta,nombre,fecha,hora) 
+                                    VALUES ('$cuenta','$name','$fecha_actual','$hora_actual')";
+                                    if ($conn->query($sql2) === TRUE) {
+                                        echo "La asistencia ha sido guardada";
+                                    } else {
+                                        echo "Error: " . $sql2 . "<br>" . $conn->error;
+                                    }
+                                }
                         ?>
                         
                 </div>
