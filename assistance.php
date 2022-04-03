@@ -96,6 +96,7 @@
                         <label for="Hora"> Hora: <?php echo $hora_actual ?> </label> <br>
                         
                         <?php   
+                            
                             $sql = "SELECT * FROM $alumnos WHERE cuenta = $cuenta";
                             $result = $conn->query($sql);
                             if($result->num_rows>0){
@@ -105,32 +106,46 @@
                                     <label for="cuenta"> <?php echo $fila['cuenta']?></label> <br>
                                     <label for="nombre"><?php echo $fila['nombre'] ?></label> <br>
                                     <label for="Horario"><?php echo $fila['horario'] ?></label> <br>
+                                    <?php $intentos = $fila['no_asistencia'] ?>
                             <?php   
                                     $horario = $fila['horario'];
                                 }
                             }
+                                
                                 setlocale(LC_ALL,""); 
-                                $dia_actual = strftime('%A');
+                                $dia_act = strftime('%A');
+                                $dia_actual = utf8_encode($dia_act);
                                 //echo $dia_actual;
+                                
+                                //echo $intentos;
                                 $pos      = strripos($horario, $dia_actual);
-                                if ($pos === false) {
-                                    //echo "Sorry, we did not find ($horario) in ($dia_actual)";
-                                    echo "Hoy no es tú día de asistencia";
-                                } else {
-                                    //echo "We found the last ($dia_actual) in ($horario) at position ($pos)";
-                                    ?> <label for="nota">Asistencia</label> <br> <?php
-                                    $sql2 = "INSERT INTO $asistencia(cuenta,nombre,fecha,hora) 
-                                    VALUES ('$cuenta','$name','$fecha_actual','$hora_actual')";
-                                    if ($conn->query($sql2) === TRUE) {
-                                        echo "La asistencia ha sido guardada";
+                                //echo $fecha_actual;
+                                ?><br> <label for="nota">Asistencia </label> <br> <?php
+                                
+                                $sql = "SELECT * FROM $asistencia WHERE cuenta = $cuenta AND fecha = '$fecha_actual'";
+                                $result = $conn->query($sql);
+                                $no_asistencias = $result->num_rows;
+                                //echo $no_asistencias;
+                                if($no_asistencias < $intentos) {
+                                    if ($pos === false ) {
+                                        //echo "Sorry, we did not find ($horario) in ($dia_actual)";
+                                        echo "Hoy no es tú día de asistencia";
                                     } else {
-                                        echo "Error: " . $sql2 . "<br>" . $conn->error;
+                                        $sql2 = "INSERT INTO $asistencia(cuenta,nombre,fecha,hora) 
+                                        VALUES ('$cuenta','$name','$fecha_actual','$hora_actual')";
+                                        if ($conn->query($sql2) === TRUE) {
+                                            echo "La asistencia ha sido guardada";
+                                        } else {
+                                            echo "Error: " . $sql2 . "<br>" . $conn->error;
+                                        }
                                     }
+                                } else {
+                                    echo "Ya sobrepasaste la cantidad de veces por día";
                                 }
-                        ?>
-                        
+                                
+                                
+                            ?>
                 </div>
-            
         </div>  
         </section>
 
