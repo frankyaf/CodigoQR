@@ -1,5 +1,18 @@
 <?php 
-    include 'phpqrcode/qrlib.php';
+    session_start();
+    require 'php/conexion2.php';
+    if(isset($_SESSION['user_id'])){
+        $sql = $conn->prepare('SELECT * FROM usuarios WHERE id =:id');
+    $sql->bindParam(':id',$_SESSION['user_id']);
+    $sql->execute();
+    $result = $sql->fetch(PDO::FETCH_ASSOC);
+
+    $user = '';
+
+        if(count($result)>0){
+            $user = $result;
+        } 
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +25,9 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+
+    <?php if(!empty($user)) :?>
+
     <main class= "contenedor">  
     <header>
             <div class="portada">
@@ -145,10 +161,15 @@
                                 
                                 
                             ?>
+                            
                 </div>
         </div>  
+        <a href="php/logout.php">Salir</a>
         </section>
-
+        <?php else:?>
+            <p>Logeate</p>
+            <a href="php/login.php">Log in</a>
+         <?php endif ;?>                       
         <section class="foot">
 
 

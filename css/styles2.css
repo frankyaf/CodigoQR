@@ -1,0 +1,105 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #dddddd;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+h1{
+	font-size: 30px;
+	margin: 0;
+}
+
+h2{	
+	font-size: 25px;
+	margin: 0;
+	text-align: left;
+}
+
+h3{
+	font-size: 25px;
+	text-align: center;
+    margin: 20px auto;
+}
+
+header{
+	float: left;
+	width: 100%;
+	background-image: url("https://media.istockphoto.com/vectors/black-background-vector-id1167050865?k=6&m=1167050865&s=612x612&w=0&h=I-wf_Vv-MzqTfcYd8AxZKKvXGM3yC6DNNAEOHswvaMY=");
+	background-size: 100px 100px;
+	text-align: center;
+	padding: 30px 15px;
+	margin-bottom: 40px;
+}
+
+.portada img{
+	width: 15%;
+	height: 100px;
+	float: left;
+}
+
+.portada .texto{
+	width: 85%;
+	padding: 10px;
+	height: 100px;
+	text-align: center;
+	float: right;
+}
+
+.portada .texto h1{
+	color: white;
+	font-size: 30px;
+	margin: 0 auto;
+}
+
+.portada .texto p{
+	color: white;
+	font-size: 20px;
+	text-align: center; 
+	margin: 0 auto;
+}
+
+.contenedor{
+  width: 1140px;
+  background-color: #24303c;
+  padding: 20px;
+  margin: 40px auto;
+  margin-top: 100px;
+  border-radius: 4px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  box-shadow: 7px 13px 37px #000;
+}
+
+input[type="text"], input[type="password"]{
+	outline: none;
+	padding: 20px;
+	display: block;
+	width: 300px;
+	border-radius: 3px;
+	border: 2px solid #24303c;
+	margin: 20px auto;
+}
+
+form{
+    background-color: #496278;
+	width: 100%;
+	margin: 0px;
+	color: white;
+	padding: 10px;
+}
+
+input[type="submit"]{
+    padding: 10px;
+    color: white;
+    background:  #0098cb;
+    width: 310px;
+    margin: 20px auto;
+    border-radius: 3px;
+}
+.clear{
+	clear: both;
+}

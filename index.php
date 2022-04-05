@@ -24,12 +24,12 @@
                     </div>
                 </div>
         </header>
-
+ 
         <nav>
             <label for="menu" class="menu">Menú Principal</label>
                     <ul id="menu"> 
                         <li><a href="index.php">Creación QR</a></li>
-                        <li><a href="assistance.php">Asistencia</a></li>
+                        <li><a href="php/login.php">Asistencia</a></li>
                     </ul>
         </nav>
         <section class= "ventana">
