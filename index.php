@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <main class= "contenedor">  
+    <div class= "contenedor">  
         <header>
                 <div class="portada">
                     <!-- <img src="imagenes/escudo_fes.png" alt="Fes Acatlán"> -->
@@ -81,6 +81,8 @@
 
                 <div class="abajo">
                     <div class="izquierda_1">
+                        <!-- Función para crear QR del alumno-->
+                            
                         <h3>Formulario para creación QR de alumno</h3>
                         <form method="get">
                                     <label for="Info">Cuenta</label>
@@ -136,8 +138,8 @@
                             //$codeContents .= 'END:VCARD';
 
                             if(!empty($s_name && $s_cuenta)){
-                                $codeContents = "Cuenta: ".$s_cuenta."\n";
-                                $codeContents .= "Nombre: ".$s_name;
+                                $codeContents = "Cuenta:".$s_cuenta."\n";
+                                $codeContents .= "Nombre:".$s_name;
                                 Qrcode::png($codeContents, $filename2, $level2, $tamanio2, $frameSize2);
                             }
 
@@ -155,6 +157,6 @@
 
 
         </section>
-    </main>
+    </div>
 </body>
 </html>
