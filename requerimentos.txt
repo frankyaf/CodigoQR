@@ -6,4 +6,7 @@ instalar dos librerias más:
     -pyzbar (Encargada de decodificar los códigos qr)
 
 Enable extension:gd for less versions of PHP is extension:gd2
+go to php.ini file xampp/php/php.ini
+search for ;extension=gd and ;extension=gd2
+remove the ; from both lines, then restart the server
 
